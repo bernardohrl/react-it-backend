@@ -17,27 +17,27 @@ public class UserController {
 	
 	
 	@RequestMapping(method=RequestMethod.GET, value="/users")
-	public List<User> getUsersList() {
+	public List<EndUser> getUsersList() {
 		return userService.getAllUsers();
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/users/{id}")
-	public User getUser(@PathVariable String id) {
+	public EndUser getUser(@PathVariable Integer id) {
 		return userService.getUser(id);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/users")
-	public void addUser(@RequestBody User user) {
+	public void addUser(@RequestBody EndUser user) {
 		userService.addUser(user); 
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/users/{id}")
-	public void updateUser(@RequestBody User user, @PathVariable String id) {
-		userService.updateUser(user, id);
+	public void updateUser(@RequestBody EndUser user, @PathVariable Integer id) {
+		userService.updateUser(user);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/users/{id}")
-	public void deleteUser(@PathVariable String id) {
+	public void deleteUser(@PathVariable Integer id) {
 		userService.deleteUser(id);
 	}
 	

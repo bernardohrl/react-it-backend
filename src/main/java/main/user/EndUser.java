@@ -1,15 +1,20 @@
 package main.user;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class EndUser {
 	
-	private String id;
+	@Id
+	private Integer id;
 	private String name;
 	private String cpf;
 	
 	
-	public User() { }
+	public EndUser() { }
 	
-	public User(String id, String name, String cpf) {
+	public EndUser(Integer id, String name, String cpf) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -17,10 +22,10 @@ public class User {
 	}
 	
 	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
