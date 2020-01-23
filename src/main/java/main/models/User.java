@@ -41,16 +41,21 @@ public class User {
 	@JoinColumn(name = "phone_id", referencedColumnName = "id")
     private Set<Phone> phones = new HashSet<Phone>();
 	
+	@OneToMany(targetEntity = Email.class, cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name = "email_id", referencedColumnName = "id")
+    private Set<Email> emails = new HashSet<Email>();
+	
 
 	
 	public User() { }
 	
-	public User(String name, String cpf, Address address, Set<Phone> phones) {
+	public User(String name, String cpf, Address address, Set<Phone> phones, Set<Email> emails) {
 		super();
 		this.name = name;
 		this.cpf = cpf;
 		this.address = address;
 		this.phones = phones;
+		this.emails = emails;
 	}
 	
 	
@@ -86,5 +91,13 @@ public class User {
 	public void setPhones(Set<Phone> phones) {
 		this.phones = phones;
 	}
+	public Set<Email> getEmails() {
+		return emails;
+	}
+	public void setEmails(Set<Email> emails) {
+		this.emails = emails;
+	}
+	
+	
 
 }
