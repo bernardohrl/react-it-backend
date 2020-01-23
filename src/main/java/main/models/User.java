@@ -37,6 +37,9 @@ public class User {
 	@Column(unique = true)
 	private String cpf;
 	
+	@NotNull
+	private String password;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id", referencedColumnName = "id")
 	private Address address;
@@ -58,10 +61,11 @@ public class User {
 
 	public User() { }
 	
-	public User(String name, String cpf, Address address, Set<Phone> phones, Set<Email> emails, Role role) {
+	public User(String name, String cpf, String password, Address address, Set<Phone> phones, Set<Email> emails, Role role) {
 		super();
 		this.name = name;
 		this.cpf = cpf;
+		this.password = password;
 		this.address = address;
 		this.phones = phones;
 		this.emails = emails;
@@ -73,40 +77,52 @@ public class User {
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public String getCpf() {
 		return cpf;
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public Address getAddress() {
 		return address;
 	}
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+	
 	public Set<Phone> getPhones() {
 		return phones;
 	}
 	public void setPhones(Set<Phone> phones) {
 		this.phones = phones;
 	}
+	
 	public Set<Email> getEmails() {
 		return emails;
 	}
 	public void setEmails(Set<Email> emails) {
 		this.emails = emails;
 	}
+	
 	public Role getRole() {
 		return role;
 	}
