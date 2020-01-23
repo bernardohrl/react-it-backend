@@ -31,6 +31,7 @@ public class User {
 	private String name;
 	
 	@NotNull
+	@Column(unique = true)
 	private String cpf;
 	
 	@OneToOne(cascade = CascadeType.ALL)
@@ -45,8 +46,8 @@ public class User {
 	@JoinColumn(name = "email_id", referencedColumnName = "id")
     private Set<Email> emails = new HashSet<Email>();
 	
-
 	
+
 	public User() { }
 	
 	public User(String name, String cpf, Address address, Set<Phone> phones, Set<Email> emails) {
