@@ -6,24 +6,35 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Address {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 	
+	@NotNull
 	private String CEP;
+	
+	@NotNull
 	private String publicArea;
+	
+	@NotNull
 	private String disctric;
+	
+	@NotNull
 	private String city;
+	
+	@NotNull
 	private String federativeUnity;
+	
 	private String complement;
 	
 	@OneToOne(mappedBy = "address")
-    private User user;
+	private User user;
 	
 	
 	public Address() {}
