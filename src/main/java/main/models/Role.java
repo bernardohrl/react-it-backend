@@ -66,11 +66,5 @@ public class Role {
 	public void setPermissions(Map<String, String> permissions) {
 		this.permissions = permissions;
 	}
-	public Set<User> getUsers() {
-		return users;
-	}
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
 
 }
