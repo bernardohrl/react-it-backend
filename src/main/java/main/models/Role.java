@@ -1,14 +1,20 @@
 package main.models;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -26,6 +32,10 @@ public class Role {
 	
 	@ElementCollection
 	Map<String, String> permissions = new HashMap<String, String>();
+
+	@OneToMany(targetEntity = User.class, cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name = "user_id", referencedColumnName = "id")
+    private Set<User> users = new HashSet<User>();
 	
 
 
@@ -56,12 +66,11 @@ public class Role {
 	public void setPermissions(Map<String, String> permissions) {
 		this.permissions = permissions;
 	}
-	
-	
-	
-	
-	
-	
+	public Set<User> getUsers() {
+		return users;
+	}
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
 
-	
 }

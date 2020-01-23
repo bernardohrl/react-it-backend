@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -44,19 +45,24 @@ public class User {
 	
 	@OneToMany(targetEntity = Email.class, cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "email_id", referencedColumnName = "id")
-    private Set<Email> emails = new HashSet<Email>();
+	private Set<Email> emails = new HashSet<Email>();
+	
+	@ManyToOne
+	@JoinColumn
+    private Role role;
 	
 	
 
 	public User() { }
 	
-	public User(String name, String cpf, Address address, Set<Phone> phones, Set<Email> emails) {
+	public User(String name, String cpf, Address address, Set<Phone> phones, Set<Email> emails, Role role) {
 		super();
 		this.name = name;
 		this.cpf = cpf;
 		this.address = address;
 		this.phones = phones;
 		this.emails = emails;
+		this.role = role;
 	}
 	
 	
@@ -98,7 +104,11 @@ public class User {
 	public void setEmails(Set<Email> emails) {
 		this.emails = emails;
 	}
-	
-	
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
 }
