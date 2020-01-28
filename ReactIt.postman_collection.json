@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "ce1b2279-7fd1-49ce-a7ac-60a3d5af98c6",
+		"name": "Surittec",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n\t\"name\": \"Novo Usuário\",\n\t\"cpf\": \"00011122233\",\n\t\"password\": \"senha\",\n\t\"address\": {\n\t\t\"cep\": \"01234567890\",\n\t\t\"publicArea\": \"Nova Área\",\n\t\t\"disctric\": \"13\",\n\t\t\"city\": \"Nova Cidade\",\n\t\t\"federativeUnity\": \"DF\"\n\t},\n\t\"phones\": [\n\t\t{\n\t\t\t\"ddd\": \"061\",\n\t\t\t\"number\": \"981374000\"\n\t\t},\n\t\t{\n\t\t\t\"ddd\": \"061\",\n\t\t\t\"number\": \"981374001\"\n\t\t}\n\t],\n\t\"emails\": [\n\t\t{\n\t\t\t\"email\": \"novo@email.com\"\n\t\t},\n\t\t{\n\t\t\t\"email\": \"novo2@email.com\"\n\t\t}\n\t],\n\t\"role\": {\n\t\t\"id\": 2\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Usuário admin NOVO NOME\",\n    \"cpf\": \"12345678910\",\n    \"password\": \"123456\",\n    \"address\": {\n        \"id\": 1,\n        \"publicArea\": \"Águas Claras\",\n        \"disctric\": \"Rua dos Baobás\",\n        \"city\": \"Brasília\",\n        \"federativeUnity\": \"DF\",\n        \"complement\": \"Em frente aos Correios\",\n        \"cep\": \"71925360\"\n    },\n    \"phones\": [\n        {\n            \"id\": 1,\n            \"ddd\": \"061\",\n            \"number\": \"981370001\"\n        },\n        {\n            \"ddd\": \"061\",\n            \"number\": \"981371231\"\n        }\n    ],\n    \"emails\": [],\n    \"role\": {\n        \"id\": 1,\n        \"name\": \"Admin\",\n        \"permissions\": {\n            \"READ\": \"true\",\n            \"DELETE\": \"true\",\n            \"CREATE_SUPERUSER\": \"true\",\n            \"CREATE\": \"true\",\n            \"UPDATE\": \"true\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "getRoles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postRole",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"Supervisor\",\n        \"permissions\": {\n            \"READ\": \"true\",\n            \"DELETE\": \"false\",\n            \"CREATE_SUPERUSER\": \"false\",\n            \"CREATE\": \"true\",\n            \"UPDATE\": \"true\"\n        }\n}\u0001",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRole",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/roles/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRole",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 2,\n        \"name\": \"RegularUser Updated\",\n        \"permissions\": {\n            \"READ\": \"true\",\n            \"DELETE\": \"false\",\n            \"CREATE_SUPERUSER\": \"false\",\n            \"CREATE\": \"false\",\n            \"UPDATE\": \"false\"\n        }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/roles/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRole",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/roles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "authenticate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf\": \"12345678910\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
